@@ -1,0 +1,46 @@
+logging:
+  level:
+    root: info
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+
+
+spring:
+  application:
+    name: marketplace
+  main:
+    banner-mode: console
+  datasource:
+    url: jdbc:mysql://localhost:3306/marketplace
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database: mysql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        enable_lazy_load_no_trans: true
+        jdbc:
+          batch_size: 10
+          order_inserts: true
+          order_updates: true
+
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path : "swagger-ui.html"
+    web:
+      exposure:
+        include: "*"
